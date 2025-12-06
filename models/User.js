@@ -1,13 +1,17 @@
+// models/User.js
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema(
   {
-    username: { type: String, required: true, unique: true },
-    email:    { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    avatar:   { type: String },
-    status:   { type: String, default: "Hey there! I’m using VibeChat" },
+    firstName: { type: String, required: true },       // ✅ new
+    lastName:  { type: String, required: true },       // ✅ new
+    username:  { type: String, required: true, unique: true },
+    email:     { type: String, required: true, unique: true },
+    password:  { type: String, required: true },
+    avatar:    { type: String },                       // value from frontend (static options)
+    status:    { type: String, default: "Hey there! I’m using VibeChat" },
+    isEmailVerified: { type: Boolean, default: false }, // ✅ new
   },
   { timestamps: true }
 );
